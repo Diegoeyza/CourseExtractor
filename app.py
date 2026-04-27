@@ -276,26 +276,32 @@ class App(ctk.CTk):
         drop_frame = ctk.CTkFrame(self, corner_radius=10, border_width=2, border_color="#3B82F6")
         drop_frame.grid(row=1, column=0, padx=20, pady=(14, 6), sticky="nsew")
         drop_frame.grid_columnconfigure(0, weight=1)
-        drop_frame.grid_rowconfigure(1, weight=1)
+        drop_frame.grid_rowconfigure(2, weight=1)
+
+        # Header of drop zone (Label + Buttons)
+        drop_header = ctk.CTkFrame(drop_frame, fg_color="transparent")
+        drop_header.grid(row=0, column=0, padx=12, pady=(10, 0), sticky="ew")
+        drop_header.grid_columnconfigure(0, weight=1)
 
         # Drop-zone label
         hint = ctk.CTkLabel(
-            drop_frame,
+            drop_header,
             text="Add PDF files or a ZIP archive containing PDFs",
             font=ctk.CTkFont(size=13),
             text_color="gray60",
+            anchor="w"
         )
-        hint.grid(row=0, column=0, padx=20, pady=(14, 4), sticky="ew")
+        hint.grid(row=0, column=0, sticky="w", padx=4)
 
-        btn_row = ctk.CTkFrame(drop_frame, fg_color="transparent")
-        btn_row.grid(row=0, column=0, padx=20, pady=(14, 4), sticky="e")
+        btn_row = ctk.CTkFrame(drop_header, fg_color="transparent")
+        btn_row.grid(row=0, column=1, sticky="e")
         ctk.CTkButton(btn_row, text="Add PDFs", width=110, command=self._browse_pdfs).pack(side="left", padx=(0, 8))
         ctk.CTkButton(btn_row, text="Add ZIP", width=110, command=self._browse_zip, fg_color="#6D28D9", hover_color="#5B21B6").pack(side="left")
         ctk.CTkButton(btn_row, text="Clear", width=80, fg_color="#374151", hover_color="#4B5563", command=self._clear_files).pack(side="left", padx=(8, 0))
 
         # File list
         self._listbox_frame = ctk.CTkScrollableFrame(drop_frame, label_text="", corner_radius=6)
-        self._listbox_frame.grid(row=1, column=0, padx=12, pady=(0, 12), sticky="nsew")
+        self._listbox_frame.grid(row=2, column=0, padx=12, pady=12, sticky="nsew")
         self._listbox_frame.grid_columnconfigure(0, weight=1)
 
         self._file_labels: list[ctk.CTkLabel] = []
