@@ -2,7 +2,7 @@
 
 CourseExtractor is a standalone desktop application that extracts structured data from course PDF files and exports it into a professionally formatted Excel spreadsheet. It uses the same extraction logic as the main RA_IAA system but operates entirely locally without the need for a database or web server.
 
-## 🚀 Features
+## Features
 
 - **PDF & ZIP Support**: Upload individual PDF files or a ZIP archive containing multiple course PDFs.
 - **Automatic Expansion**: ZIP files are automatically scanned and all contained PDFs are processed.
@@ -16,7 +16,7 @@ CourseExtractor is a standalone desktop application that extracts structured dat
 - **Native GUI**: Built with `CustomTkinter` for a modern, dark-themed desktop experience.
 - **Single Executable**: Can be compiled into a standalone `.exe` or binary that runs on machines without Python installed.
 
-## 🛠️ Setup for Development
+## Setup for Development
 
 If you want to run the app from source or make modifications:
 
@@ -35,7 +35,7 @@ If you want to run the app from source or make modifications:
    python app.py
    ```
 
-## 📦 Distribution (Building the Executable)
+## Distribution (Building the Executable)
 
 To create a single, self-contained executable for non-technical users:
 
@@ -49,7 +49,7 @@ To create a single, self-contained executable for non-technical users:
    - **Linux/Mac**: `dist/CourseExtractor`
    - **Windows**: `dist/CourseExtractor.exe`
 
-## ⚙️ Dependencies
+## Dependencies
 
 - `pdfplumber`: For high-precision PDF text and table extraction.
 - `customtkinter`: For the modern native GUI.
